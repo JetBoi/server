@@ -1,9 +1,15 @@
+GAME
+1. GET api/game/get
+	получает билд игры
+
+LEADER BOARD
 1. GET api/leaderboard/get
 	получает весь лидерборд
 	
 2. POST api/leaderboard/update
 	сообщает, что лидерборд нужно обновить (добавить запись, обновить запись)
-	Пример
+	
+	Пример:
 	
 	update
 	{ 
