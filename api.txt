@@ -1,12 +1,14 @@
-GAME
-1. GET api/game/get
+BUILD
+1. GET 
+	/Build/...
+	/TemplateData/...
 	получает билд игры
 
 LEADER BOARD
-1. GET api/leaderboard/get
+1. GET /api/leaderboard/get
 	получает весь лидерборд
 	
-2. POST api/leaderboard/update
+2. POST /api/leaderboard/update
 	сообщает, что лидерборд нужно обновить (добавить запись, обновить запись)
 	
 	Пример:

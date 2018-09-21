@@ -29,15 +29,15 @@ var server = http.createServer((req, res) =>
     if(req.method.toLocaleLowerCase() === "get")
     {
         // отдаем главную страницу
-        if (API.GET_game_get)
+        if (req.url === API.GET_game_get)
             res.end(fs.readFileSync("../../build/index.html"));
            
         // отдаем билд и контент
-        if (API.GET_game_build(req.url) || API.GET_game_templateData(req.url))
+        else if (API.GET_game_build(req.url) || API.GET_game_templateData(req.url))
             res.end(fs.readFileSync("../../build" + req.url));
 
         // отдаем лидерборду
-        if (API.GET_Leaderboard_get)
+        else if (req.url === API.GET_Leaderboard_get)
             res.end(leadboard.GetJSONString());
 
     }
@@ -53,7 +53,7 @@ var server = http.createServer((req, res) =>
                 
                 if(jsnUser.name.length > 0 && jsnUser.score !== "")
                 {
-                    leadboard.SetUserObject(jsnUser);
+                    leadboard.AddUserObject(jsnUser);
                     leadboard.Save();
                 }
             });
